@@ -1,14 +1,14 @@
-import { Button } from "@/components/button";
+import Link from "next/link";
 
 //SERVER COMPONENTS -- CLIENT COMPONENTS
-interface PostProps {
+export interface PostProps {
   id: number;
   title: string;
   body: string;
   userId: number;
 }
 
-interface ResponseProps {
+export interface ResponseProps {
   posts: PostProps[];
 }
 
@@ -57,6 +57,9 @@ export default async function Posts() {
           <div key={post.id} className="bg-gray-200 p-4 rounded-mds">
             <h2 className="font-bold">{post.title}</h2>
             <p>{post.body}</p>
+            <Link className="text-blue-500" href={`/posts/${post.id}`}>
+              Acessar detalhes
+            </Link>
           </div>
         ))}
       </div>
